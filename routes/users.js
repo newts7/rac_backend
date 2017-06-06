@@ -33,18 +33,17 @@ else{
 }
 });
 router.post('/',function(req,res,next){
+User.addUser(req.body,function (err,rows) {
+   if(err)
+   {
+       res.json(err);
+   }
+   else
+   {
+       res.json(rows);
+   }
+});
 
-        User.addUser(req.body,function(err,count){
-
-            //console.log(req.body);
-            if(err)
-            {
-                res.json(err);
-            }
-            else{
-                    res.json(req.body);//or return count for 1 & 0
-            }
-        });
 });
 
 module.exports=router;

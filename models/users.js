@@ -12,25 +12,8 @@ getUserById:function(id,callback){
     return db.query("select * from user where Id=?",[id],callback);
 },
 addUser:function(User,callback){
-   console.log("inside service");
-   console.log(User.Id);
-return db.query("Insert into user values(?,?,?)",[User.Id,User.Title,User.Status],callback);
+return db.query("Insert into user (Name,college,profilepic) values(?,?,?)",[User.Name,User.college,User.profilepic],callback);
 //return db.query("insert into User(Id,Title,Status) values(?,?,?)",[User1.Id,User1.Title,User1.Status],callback);
-},
-deleteUser:function(id,callback){
-    return db.query("delete from user where Id=?",[id],callback);
-},
-updateUser:function(id,User,callback){
-    return  db.query("update user set Title=?,Status=? where Id=?",[User.Title,User.Status,id],callback);
-},
-deleteAll:function(item,callback){
-
-var delarr=[];
-   for(i=0;i<item.length;i++){
-
-       delarr[i]=item[i].Id;
-   }
-   return db.query("delete from User where Id in (?)",[delarr],callback);
 }
 };
 module.exports=User;
