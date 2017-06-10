@@ -1,0 +1,13 @@
+/*End-points  for facemash*/
+
+
+
+GET /users                      ****list all users****
+GET /users/:id                  ****info about a particular user***
+POST /users                      ****adds a new user*/****
+POST /users/:userid/:rating          ****updates rating****
+
+
+
+
+

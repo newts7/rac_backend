@@ -13,7 +13,16 @@ getUserById:function(id,callback){
 },
 addUser:function(User,callback){
 return db.query("Insert into user (Name,college,profilepic) values(?,?,?)",[User.Name,User.college,User.profilepic],callback);
-//return db.query("insert into User(Id,Title,Status) values(?,?,?)",[User1.Id,User1.Title,User1.Status],callback);
+},
+
+ratingUpdate:function (id,rating,callback) {
+    return db.query("UPDATE user SET rating=? WHERE id=?",[rating,id],callback);
+},
+
+getleaders:function (callback) {
+
+  return db.query("",callback);
 }
+
 };
 module.exports=User;
